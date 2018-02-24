@@ -1,0 +1,35 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd">
+    <AbsoluteLayout>
+        <ScrollView flexGrow="1" id="scrollview" class="sv">
+            <StackLayout orientation="vertical">
+                <FlexboxLayout flexDirection="column" alignContent="flex-start">
+                    <Label text="נותרת" flexGrow="1" margin="50 0 20" textAlignment="center" fontSize="25" color="#426190"></Label>
+                    <FlexboxLayout flexDirection="column" *ngFor="let objMocData of resMocData;let idx = index" margin="20" borderRadius="20"
+                        backgroundColor="#e8ecdf" style="overflow:hidden">
+                        <FlexboxLayout flexDirection="row" alignContent="space-between" (onTap)="partClicked('Top')">
+                            <FlexboxLayout flexDirection="column">
+                                <Label [text]="objMocData.time" backgroundColor="#efc372" color="white" fontSize="30" padding="5" textAlignment="center"
+                                    borderRadius="20 0 20 0"></Label>
+                            </FlexboxLayout>
+                            <FlexboxLayout flexDirection="column" height="100" flexGrow="1" justifyContent="flex-end">
+                                <Label [text]="'₪' + objMocData.amount" color="#7bcdbb" fontSize="30" textAlignment="center"></Label>
+                                <Label [text]="objMocData.name" color="#426190" padding="0 0 10" fontSize="20" textAlignment="center"></Label>
+                            </FlexboxLayout>
+                            <FlexboxLayout flexDirection="column">
+                                <Label backgroundColor="#426190" height="50" width="50" textAlignment="center" borderRadius="50%" margin="10"></Label>
+                            </FlexboxLayout>
+                        </FlexboxLayout>
+                        <Label [text]="objMocData.message" color="white" fontSize="20" [backgroundColor]="idx<2?'#7bcdbb':'#efa7ac'" padding="15 0"
+                            textAlignment="center" borderRadius="0 0 20 20" verticalAlignment="center" (onTap)="partClicked('Bottom')"></Label>
+                    </FlexboxLayout>
+
+                </FlexboxLayout>
+            </StackLayout>
+        </ScrollView>
+        <stacklayout class="float-btn-container">
+            <stacklayout class="float-btn">
+                <Image src="~/assets/images/iconshop.png"></Image>
+            </stacklayout>
+        </stacklayout>
+    </AbsoluteLayout>
+</Page>
